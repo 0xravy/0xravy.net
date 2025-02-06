@@ -1,0 +1,36 @@
+<script>
+	import Home from '$lib/components/Home.svelte';
+	import Projects from '$lib/components/Projects.svelte';
+	import Contact from '$lib/components/Contact.svelte';
+	import DotsBg from '$lib/components/static/DotsBg.svelte';
+	import Experience from '$lib/components/Experience.svelte';
+	import Skills from '$lib/components/Skills.svelte';
+	import Cursor from '$lib/components/static/Cursor.svelte';
+
+	let isBlack = $state(false);
+
+	$inspect(isBlack);
+</script>
+
+<DotsBg />
+<Cursor bind:isBlack />
+
+<main>
+	<Home bind:isBlack />
+	<div class="lala1">
+		<Experience />
+		<Projects />
+		<Skills />
+		<Contact />
+	</div>
+</main>
+
+<style>
+	@import '$lib/styles/global.css';
+
+	.lala1 {
+		box-shadow: -1px -20px 20px 10px #00000042;
+		background: var(--primary);
+		width: 100%;
+	}
+</style>
