@@ -1,3 +1,3 @@
 This is 0xravy website
 
-![./static/view.png](test)
+![view](./static/view.png)
