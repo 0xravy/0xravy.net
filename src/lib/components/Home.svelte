@@ -25,10 +25,9 @@
 					</div>
 					<p>
 						<span style="color: red">WHOAMI</span><br />
-						A 19-year-old ambitious Saudi IT specialist with more than 5 years of experience in programming
-						and I am a network student,
-						<br /><br />
-						dedicated to advancing the Arab community in technology
+						A 19-year-old Saudi tech enthusiast with over 5 years of programming experience and a passion
+						for networking.<br /><br />Dedicated to developing the Arab community grow in the world
+						of technology.
 					</p>
 				</h2>
 			</div>
@@ -46,6 +45,7 @@
 		align-items: center;
 		width: 100%;
 		overflow-x: hidden;
+		padding-bottom: 10%;
 	}
 	@media only screen and (max-width: 1100px) {
 		.container {

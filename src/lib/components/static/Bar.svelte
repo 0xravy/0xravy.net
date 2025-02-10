@@ -50,6 +50,7 @@
 </script>
 
 <div></div>
+
 {#if windowWidth <= 800}
 	<nav style={`${openMenu && 'width: 100%'};`} class:slide-in={pageLoaded}>
 		<a

@@ -73,7 +73,7 @@
 			opacity 1s ease,
 			transform 1s ease,
 			box-shadow 0.7s ease;
-		opacity: 0.3;
+		opacity: 0.7;
 
 		&:hover {
 			--color: var(--secondary);
@@ -120,7 +120,7 @@
 		gap: 30px;
 	}
 	.card .card-content .links a {
-		--color: var(--tertiary);
+		--color: var(--white);
 		font-size: var(--font-size-small);
 		padding: 7px 20px;
 		border-radius: 10px;
@@ -128,12 +128,14 @@
 		border: solid 3px var(--color);
 		border-radius: 10px;
 		transition: 0.3s ease;
+		opacity: 0.8;
 
 		&:hover {
 			--color: var(--green);
 			background: var(--color);
 			border-color: var(--color);
 			color: var(--primary);
+			opacity: 1;
 		}
 	}
 
