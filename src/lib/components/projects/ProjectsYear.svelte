@@ -75,6 +75,7 @@
 		gap: 50px;
 		width: 100%;
 		padding: 20px 0;
+		padding-top: 120px;
 	}
 
 	.year {
@@ -103,5 +104,19 @@
 		align-items: center;
 		font-size: 25px;
 		z-index: 2;
+	}
+
+	@media only screen and (max-width: 900px) {
+		.projects-year {
+			flex-direction: row-reverse;
+		}
+		.year {
+			width: 50px;
+			.year-label {
+				aspect-ratio: 1 / 1;
+				width: 100%;
+				height: auto;
+			}
+		}
 	}
 </style>

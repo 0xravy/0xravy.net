@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Pixelify+Sans:wght@400..700&display=swap');
 
 :root {
+	--screen-size-phone: 350px;
+	--screen-size-ipad: 1500px;
+	--screen-size-laptop: 1980px;
+
 	/* Font Sizes */
 	--font-size-xsmall: 0.5rem;
 	--font-size-small: 0.8rem;
@@ -12,8 +16,11 @@
 
 	/* Primary Colors */
 	--primary: #0c0c24;
-	--secondary: #2a2a41;
-	--tertiary: #62628a;
+	/*--secondary: #2a2a41;*/
+	/*--tertiary: #62628a;*/
+	--secondary: #2a2a41bf;
+	--tertiary: #62628a47;
+
 	/* Normal Colors */
 	--black: #000;
 	--red: #ff3e3e;
@@ -37,20 +44,21 @@
 }
 
 :global(html) {
-	overflow-x: hidden;
-
-	font-size: 30px; /* Default base size of rem(Root em) */
+	font-size: min(30px, max(calc(2vw + 5px), 25px)); /* Default base size of rem(Root em) */
 }
+
 :global(body) {
 	width: 100%;
 	height: 100%;
 	background: var(--primary);
 	color: var(--white);
 }
+
 @font-face {
 	font-family: 'LiveOverfont';
 	src: url('/LiveOverfont.woff') format('woff');
 }
+
 :global(*) {
 	scroll-behavior: smooth;
 	/*font-family: 'Pixelify Sans', serif;*/
@@ -63,6 +71,7 @@
 	text-decoration: none;
 	transition: 0.3s linear;
 }
+
 :global(::-moz-selection) {
 	/* Code for Firefox */
 	color: black;

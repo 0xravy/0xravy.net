@@ -5,16 +5,14 @@
 
 	let mouseX = 0;
 	let mouseY = 0;
-	const originalPrimaryColor = '#0c0c24'; // Store the original --primary color
+	const originalPrimaryColor = '#0c0c24';
 
-	// Function to handle mouse movement
 	function handleMouseMove(event: MouseEvent) {
 		mouseX = event.clientX;
 		mouseY = event.clientY;
 		updatePupilPosition();
 	}
 
-	// Function to update pupil position based on mouse movement
 	function updatePupilPosition() {
 		const eyes = document.querySelectorAll('.eye');
 		eyes.forEach((eye) => {
@@ -26,8 +24,7 @@
 			const deltaY = mouseY - eyeCenterY;
 			const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
 
-			// Limit pupil movement within eye bounds
-			const maxMove = 10; // Adjust pupil movement range
+			const maxMove = 10;
 			const moveX = (deltaX / distance) * Math.min(maxMove, Math.abs(deltaX));
 			const moveY = (deltaY / distance) * Math.min(maxMove, Math.abs(deltaY));
 
@@ -38,30 +35,27 @@
 		});
 	}
 
-	// Function to toggle the --primary color between black and the original color
 	function togglePrimaryColor() {
 		const root = document.documentElement;
 		if (isBlack) {
-			root.style.setProperty('--primary', originalPrimaryColor); // Revert to the original color
+			root.style.setProperty('--primary', originalPrimaryColor);
 		} else {
-			root.style.setProperty('--primary', 'black'); // Change to black
+			root.style.setProperty('--primary', 'black');
 		}
 		isBlack = !isBlack;
 	}
 
-	// Attach event listeners when the component mounts
 	onMount(() => {
 		window.addEventListener('mousemove', handleMouseMove);
 
-		// Add click event listener to Ravy
 		const ravy = document.querySelector('.ravy');
 		if (ravy) {
 			ravy.addEventListener('click', togglePrimaryColor);
 		}
 
-		// Cleanup event listeners when the component is destroyed
 		return () => {
 			window.removeEventListener('mousemove', handleMouseMove);
+
 			if (ravy) {
 				ravy.removeEventListener('click', togglePrimaryColor);
 			}
@@ -112,7 +106,7 @@
 		border-radius: 50%;
 		animation: ravy 4s infinite cubic-bezier(0.65, 0.05, 0.36, 1);
 		overflow: hidden;
-		cursor: pointer; /* Add pointer cursor to indicate clickability */
+		cursor: pointer;
 
 		& .cap {
 			top: 20%;
@@ -179,16 +173,16 @@
 	@keyframes hov {
 		0%,
 		100% {
-			transform: rotate(-5deg);
+			transform: rotate(-3deg);
 		}
 		50% {
-			transform: rotate(5deg);
+			transform: rotate(3deg);
 		}
 	}
 
 	.ravy:hover {
-		animation: hov 0.1s infinite linear;
-		animation-delay: 1s;
+		/*animation: hov 0.1s infinite linear;*/
+		/*animation-delay: 1s;*/
 		& > .eyes .eye .pupil {
 			background: var(--red);
 		}

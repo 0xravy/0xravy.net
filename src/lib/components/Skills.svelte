@@ -23,7 +23,8 @@
 		{
 			title: 'figma',
 			img: 'https://cdn.freebiesupply.com/logos/large/2x/figma-1-logo-png-transparent.png',
-			content: '- Nmap is a network scanning tool used for security and network exploration.'
+			content:
+				'- Figma is the leading collaborative design tool for building meaningful products. Seamlessly design, prototype, develop, and collect feedback in a single'
 		},
 		{
 			title: 'js',
@@ -140,8 +141,8 @@
 
 	.container {
 		width: 100%;
-		height: 300px;
 		display: flex;
+		padding: 50px 0;
 		justify-content: space-between;
 		gap: 100px;
 	}
@@ -150,9 +151,11 @@
 		display: flex;
 		flex-direction: column;
 		gap: 30px;
-		width: 50%;
+		width: max(100%, 400px);
 
 		& .content p {
+			height: 400px;
+
 			&::before {
 				content: attr(data-title);
 				color: var(--magenta);
@@ -163,19 +166,20 @@
 
 	.right {
 		--pt: 10px;
-		width: 50%;
+		width: max(90%, 250px);
 		padding-top: var(--pt);
 		height: calc(100% - var(--pt));
-		display: grid;
-		--size: 70px;
-		grid-template-columns: repeat(4, var(--size));
-		grid-auto-rows: var(--size);
-		grid-gap: 50px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 80px;
 
-		justify-items: center;
+		justify-content: center;
 		align-items: center;
 
 		& button {
+			--size: 80px;
+			width: var(--size);
+			height: var(--size);
 			position: relative;
 			display: flex;
 			justify-content: center;
@@ -197,6 +201,11 @@
 					border: 70px solid var(--red);
 					opacity: 0.3;
 				}
+
+				& .image {
+					filter: grayscale(0%);
+					opacity: 1;
+				}
 			}
 
 			& span {
@@ -212,6 +221,8 @@
 				width: var(--size);
 				height: var(--size);
 				overflow: hidden;
+				filter: grayscale(70%);
+				opacity: 0.7;
 
 				& img {
 					transition: 0.5s ease;
@@ -223,7 +234,7 @@
 			}
 			& .bg {
 				content: '';
-				transition: 0.3s linear;
+				transition: 0.3s ease;
 				padding: 0px;
 				border-radius: 50%;
 				position: absolute;
@@ -241,5 +252,20 @@
 	.t1 {
 		color: var(--red);
 		font-size: 1.2em;
+	}
+
+	@media only screen and (max-width: 1200px) {
+		.container {
+			flex-wrap: wrap;
+			justify-content: center;
+
+			& .left .content p {
+				height: 250px;
+			}
+
+			& .right button {
+				size: 30px;
+			}
+		}
 	}
 </style>

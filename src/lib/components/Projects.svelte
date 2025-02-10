@@ -23,9 +23,9 @@
 			color: 'magenta',
 			projects: [
 				{
-					img: 'https://media.discordapp.net/attachments/1044330517291606158/1258389170271944734/image.png?ex=67a54a7d&is=67a3f8fd&hm=81e79c25388e83b6eb9eba9adb5aef69ae1b14b9c366886c021547524ef19cf4&=&format=webp&quality=lossless&width=1208&height=675',
-					title: '0x-In-Cube - website',
-					desc: 'This website to support Arabic community to share experince  ---------------------------------------- ⚠️  I STILL WORK ON IT ⚠️ ---------',
+					img: 'https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/rMadI-Zz9l0vd44f0/videoblocks-question-mark-symbol_hbcmmg3ea_thumbnail-180_01.jpg',
+					title: '0xInCube - website',
+					desc: 'This website to support Arabic community to share experince  --------------- ⚠️  I STILL WORK ON IT ⚠️ ---------',
 					links: { demo: '', repo: '' }
 				}
 			]
@@ -137,7 +137,7 @@
 		top: 50%;
 		transform: translateY(-50%);
 		content: '';
-		width: 50px;
+		width: 20px;
 		height: 1px;
 		background: white;
 		position: absolute;
@@ -145,10 +145,10 @@
 	}
 
 	h5::before {
-		left: -60px;
+		left: -35px;
 	}
 	h5::after {
-		right: -60px;
+		right: -35px;
 	}
 	center a {
 		color: var(--blue);
@@ -198,7 +198,7 @@
 	}
 
 	.animate-on-scroll {
-		opacity: 0;
+		/*opacity: 0;*/
 		transform: translateY(50px);
 		transition:
 			opacity 1s ease,
@@ -207,7 +207,7 @@
 	}
 
 	:global(.animate-on-scroll.animate-in) {
-		opacity: 1;
+		/*opacity: 1;*/
 		transform: translateY(0);
 	}
 </style>

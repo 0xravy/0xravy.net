@@ -114,6 +114,8 @@
 		transition:
 			opacity 1.5s ease,
 			transform 2s ease;
+
+		overflow: hidden;
 	}
 
 	section.animate-in {
@@ -125,64 +127,76 @@
 		width: 100%;
 		height: 600px;
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
+		flex-wrap: wrap;
 	}
 
 	.left {
 		display: flex;
 		flex-direction: column;
 		gap: 70px;
-		width: 30%;
+		width: min(100%, 300px);
 	}
 
-	.left ul li {
-		--w: 200px;
-		position: relative;
-		padding: 20px 60px;
-		list-style: none;
-		width: var(--w);
-		cursor: pointer;
+	.left ul {
+		width: 100%;
+		height: 300px;
+		display: flex;
+		flex-direction: column;
 
-		&:hover {
-			& div {
-				opacity: 1;
-			}
-		}
-		&.clicked {
-			border-left: solid 5px var(--red);
-			width: calc(var(--w) - 4.6px);
-			color: var(--red);
-		}
-
-		& span {
-			z-index: 10;
+		& li {
+			display: flex;
+			align-items: center;
 			position: relative;
-		}
-
-		& div {
-			opacity: 0.6;
-			position: absolute;
-			content: '';
-			background: var(--secondary);
-			left: 0;
-			top: 0;
-			width: 100%;
+			list-style: none;
+			width: calc(100% - var(--p) * 2);
 			height: 100%;
-		}
-		& button {
-			background: none;
-			border: none;
-			padding: 0;
-			width: 100%;
-			text-align: left;
-			font-size: var(--font-size-medium);
-			color: var(--white);
+			cursor: pointer;
+
+			&:hover {
+				& div {
+					opacity: 1;
+				}
+			}
+			&.clicked {
+				border-left: solid 6px var(--red);
+				color: var(--red);
+				& div {
+					opacity: 0.1;
+				}
+			}
+
+			& button {
+				background: none;
+				border: none;
+				padding-left: 40px;
+				width: 100%;
+				height: 100%;
+				text-align: left;
+				color: var(--white);
+				font-size: var(--font-size-medium);
+			}
+			& span {
+				z-index: 10;
+				position: relative;
+			}
+
+			& div {
+				opacity: 0.6;
+				position: absolute;
+				content: '';
+				background: var(--secondary);
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
 		}
 	}
 
 	.right {
 		--pt: 120px;
-		width: 70%;
+		width: min(100%, 700px);
 		padding-top: var(--pt);
 		height: calc(100% - var(--pt));
 
@@ -209,6 +223,32 @@
 				opacity: 0.7;
 				font-size: var(--font-size-medium);
 				line-height: 40px;
+			}
+		}
+	}
+
+	@media only screen and (max-width: 1200px) {
+		.left {
+			width: 100%;
+			height: 120px;
+		}
+		.left ul {
+			width: min(98%, 500px);
+			flex-direction: row;
+
+			& li {
+				height: 50px;
+				width: 100%;
+				& button {
+					padding: 0;
+					width: 100%;
+					font-size: var(--font-size-small);
+					text-align: center;
+				}
+			}
+			& li.clicked {
+				border-left: solid 0px var(--red);
+				border-bottom: solid 5px var(--red);
 			}
 		}
 	}

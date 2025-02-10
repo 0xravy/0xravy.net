@@ -35,33 +35,33 @@
 <section id="contact" class:animate-in={isVisible}>
 	<Container>
 		<div class="container">
-			<div class="form animate-form">
+			<form action="https://formspree.io/f/xldglpkd" method="POST" class="form animate-form">
 				<div class="inputs">
 					<div class="n1">
 						<label for="name">👉 Name</label>
-						<input id="name" type="text" />
+						<input name="Name" id="name" type="text" />
 					</div>
 					<div class="n2">
 						<label for="email">👉 Email</label>
-						<input id="email" type="text" />
+						<input name="Email" id="email" type="text" />
 					</div>
 					<div class="n3">
 						<label for="message">👉 Message</label>
-						<textarea id="message"></textarea>
+						<textarea name="Message" id="message"></textarea>
 					</div>
 				</div>
 
 				<div class="button">
-					<button>SEND</button>
+					<button type="submit">SEND</button>
 				</div>
-			</div>
+			</form>
 
 			<div class="links animate-links">
 				<span class="t1"># ANOTHER WAYS</span><br /><br />
 
 				<span class="t2">
 					<a target="_blank" href="https://discord.com/invite/7RUktMgkzg">Discord</a> |
-					<a target="_blank" href="/">Linkdin</a>
+					<a target="_blank" href="https://www.linkedin.com/in/abdulrahman-alenezi/">Linkdin</a>
 				</span>
 
 				0xravy@gmail.com<br />
@@ -84,11 +84,11 @@
 						<span><span>|</span> <span>0xravy</span></span>
 					</div>
 					<div>
-						<a target="_blank" href="/">Twitch</a>
+						<a target="_blank" href="https://www.twitch.tv/0xravy">Twitch</a>
 						<span><span>|</span> <span>0xravy</span></span>
 					</div>
 					<div>
-						<a target="_blank" href="/">Tiktok</a>
+						<a target="_blank" href="https://www.tiktok.com/@0xravy">Tiktok</a>
 						<span><span>|</span> <span>0xravy</span></span>
 					</div>
 				</span>
@@ -99,7 +99,8 @@
 
 <style>
 	section {
-		padding: 150px 0;
+		padding-top: 150px;
+		padding-bottom: 50px;
 		display: flex;
 		justify-content: center;
 		align-items: flex-start;
@@ -109,6 +110,9 @@
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
+		gap: 70px;
+		flex-wrap: wrap;
+		overflow: hidden;
 	}
 
 	input,
@@ -131,7 +135,8 @@
 	}
 
 	.form {
-		width: min(550px, 90%);
+		margin: 0 auto;
+		width: min(100%, 600px);
 		display: flex;
 		flex-direction: column;
 		gap: 35px;
@@ -144,8 +149,9 @@
 	}
 
 	.links {
+		margin: 0 auto;
 		font-size: 25px;
-		width: 40%;
+		width: min(100%, 400px);
 		opacity: 0;
 		transform: translateX(100%);
 		transition:
@@ -226,7 +232,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		padding-right: 100px;
+		/*padding-right: ;*/
 	}
 
 	.social div a {

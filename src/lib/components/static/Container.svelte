@@ -9,4 +9,11 @@
 		align-items: center;
 		padding: 50px 0;
 	}
+
+	@media only screen and (max-width: 900px) {
+		.container {
+			width: min(90%, 1200px);
+			padding: 30px 0;
+		}
+	}
 </style>

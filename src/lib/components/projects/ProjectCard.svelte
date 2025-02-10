@@ -50,10 +50,10 @@
 		</div>
 		<div class="links">
 			{#if links.demo}
-				<a href={links.demo}>Demo</a>
+				<a target="_blank" href={links.demo}>Demo</a>
 			{/if}
 			{#if links.repo}
-				<a href={links.repo}>Repo</a>
+				<a target="_blank" href={links.repo}>Repo</a>
 			{/if}
 		</div>
 	</div>
@@ -67,23 +67,22 @@
 		display: flex;
 		border-radius: 10px;
 		gap: 20px;
-		opacity: 0.3;
 		transition: 0.7s ease;
 		transform: translateX(-50%);
 		transition:
 			opacity 1s ease,
 			transform 1s ease,
 			box-shadow 0.7s ease;
+		opacity: 0.3;
 
 		&:hover {
 			--color: var(--secondary);
 			opacity: 1;
-			box-shadow: 0 0 30px 10px var(--color);
+			box-shadow: 0 0 50px 20px var(--color);
 		}
 	}
 
 	.card.animate-in {
-		opacity: 1;
 		transform: translateX(0);
 	}
 
@@ -135,6 +134,44 @@
 			background: var(--color);
 			border-color: var(--color);
 			color: var(--primary);
+		}
+	}
+
+	@media only screen and (max-width: 900px) {
+		.card {
+			flex-direction: column;
+			height: auto;
+			width: 90%;
+			padding: 0;
+			opacity: 1;
+
+			&:hover {
+				--color: none;
+			}
+
+			& .card-img {
+				text-align: center;
+				width: 100%;
+				& img {
+					width: min(100%, 250px);
+					max-height: 250px;
+				}
+			}
+			& .card-content {
+				gap: 30px;
+			}
+		}
+	}
+
+	@media only screen and (max-width: 800px) {
+		.card .card-content .links {
+			justify-content: space-around;
+			gap: 20px;
+			& a {
+				width: 100%;
+				text-align: center;
+				padding: 15px 30px;
+			}
 		}
 	}
 </style>

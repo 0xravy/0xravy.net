@@ -52,6 +52,12 @@
 		padding: 30px;
 	}
 
+	@media only screen and (max-width: 1200px) {
+		.custom-cursor {
+			display: none;
+		}
+	}
+
 	@keyframes cur {
 		0%,
 		100% {

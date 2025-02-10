@@ -6,6 +6,8 @@
 	import Experience from '$lib/components/Experience.svelte';
 	import Skills from '$lib/components/Skills.svelte';
 	import Cursor from '$lib/components/static/Cursor.svelte';
+	import Bar from '$lib/components/static/Bar.svelte';
+	import IpsBg from '$lib/components/static/IpsBg.svelte';
 
 	let isBlack = $state(false);
 
@@ -13,7 +15,11 @@
 </script>
 
 <DotsBg />
+{#if isBlack}
+	<IpsBg />
+{/if}
 <Cursor bind:isBlack />
+<Bar />
 
 <main>
 	<Home bind:isBlack />
@@ -32,5 +38,8 @@
 		box-shadow: -1px -20px 20px 10px #00000042;
 		background: var(--primary);
 		width: 100%;
+	}
+
+	main {
 	}
 </style>
