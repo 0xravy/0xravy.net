@@ -8,6 +8,7 @@
 	import Cursor from '$lib/components/static/Cursor.svelte';
 	import Bar from '$lib/components/static/Bar.svelte';
 	import IpsBg from '$lib/components/static/IpsBg.svelte';
+	import CubesBg from '$lib/components/static/CubesBg.svelte';
 
 	let isBlack = $state(false);
 
@@ -17,7 +18,10 @@
 <DotsBg />
 {#if isBlack}
 	<IpsBg />
+{:else}
+	<CubesBg />
 {/if}
+
 <Cursor bind:isBlack />
 <Bar />
 
