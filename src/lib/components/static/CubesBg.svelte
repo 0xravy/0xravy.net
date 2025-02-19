@@ -32,7 +32,7 @@
 		top: 0;
 		left: -1vw;
 		width: 100%;
-		height: 200vh;
+		height: 220vh;
 		z-index: -1;
 		/*overflow: hidden;*/
 		rotate: 20deg;
