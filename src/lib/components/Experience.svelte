@@ -11,7 +11,7 @@
 	const items: Item[] = [
 		{
 			title: 'Code',
-			date: '2020',
+			date: '2019',
 			content:
 				'Controll all project alone and with teams i can be flexible with the poubler programming languages'
 		},

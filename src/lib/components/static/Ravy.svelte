@@ -1,11 +1,47 @@
 <script lang="ts">
+	import { localStore } from '$lib/localStore.svelte';
 	import { onMount } from 'svelte';
 
-	let { isBlack = $bindable() } = $props();
+	let theme = localStore<'light' | 'dark'>('theme', 'light');
 
 	let mouseX = 0;
 	let mouseY = 0;
 	const originalPrimaryColor = '#0c0c24';
+
+	$effect(() => {
+		document.documentElement.setAttribute('data-theme', theme.value);
+	});
+
+	function togglePrimaryColor() {
+		const root = document.documentElement;
+
+		if (theme.value === 'light') {
+			root.style.setProperty('--primary', 'black');
+		} else if (theme.value === 'dark') {
+			root.style.setProperty('--primary', originalPrimaryColor);
+		}
+
+		theme.value = theme.value === 'light' ? 'dark' : 'light';
+	}
+
+	onMount(() => {
+		window.addEventListener('mousemove', handleMouseMove);
+
+		const ravy = document.querySelector('.ravy');
+		if (ravy) {
+			ravy.addEventListener('click', () => {
+				togglePrimaryColor();
+			});
+		}
+
+		return () => {
+			window.removeEventListener('mousemove', handleMouseMove);
+
+			if (ravy) {
+				ravy.removeEventListener('click', togglePrimaryColor);
+			}
+		};
+	});
 
 	function handleMouseMove(event: MouseEvent) {
 		mouseX = event.clientX;
@@ -34,40 +70,23 @@
 			}
 		});
 	}
-
-	function togglePrimaryColor() {
-		const root = document.documentElement;
-		if (isBlack) {
-			root.style.setProperty('--primary', originalPrimaryColor);
-		} else {
-			root.style.setProperty('--primary', 'black');
-		}
-		isBlack = !isBlack;
-	}
-
-	onMount(() => {
-		window.addEventListener('mousemove', handleMouseMove);
-
-		const ravy = document.querySelector('.ravy');
-		if (ravy) {
-			ravy.addEventListener('click', togglePrimaryColor);
-		}
-
-		return () => {
-			window.removeEventListener('mousemove', handleMouseMove);
-
-			if (ravy) {
-				ravy.removeEventListener('click', togglePrimaryColor);
-			}
-		};
-	});
 </script>
 
-<div class="ravy {isBlack && 'dark'}">
-	<img class="cap" width="380" src="/ravy/cap{(isBlack && '-dark') || ''}.svg" alt="" />
+<div class="ravy {theme.value === 'light' ? 'light' : 'dark'}">
+	<img
+		class="cap"
+		width="380"
+		src={theme.value === 'light' ? '/ravy/cap.svg' : '/ravy/cap-dark.svg'}
+		alt={theme.value}
+	/>
 	<img class="face" width="170" src="/ravy/face.svg" alt="" />
-	<img class="clohes" width="400" src="/ravy/clohes{(isBlack && '-dark') || ''}.svg" alt="" />
-	<img style="opacity: 0;" width="400" src="/ravy.svg" alt="" />
+	<img
+		class="clohes"
+		width="400"
+		src={theme.value === 'light' ? '/ravy/clohes.svg' : '/ravy/clohes-dark.svg'}
+		alt={theme.value}
+	/>
+	<img style="opacity: 0;" width="400" src="/ravy.svg" alt={theme.value} />
 
 	<div class="eyes">
 		<div class="eye">

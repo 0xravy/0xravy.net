@@ -43,11 +43,11 @@
 	--section-width: 1600px;
 }
 
-:global(html) {
+html {
 	font-size: min(30px, max(calc(2vw + 5px), 25px)); /* Default base size of rem(Root em) */
 }
 
-:global(body) {
+body {
 	width: 100%;
 	height: 100%;
 	background: var(--primary);
@@ -59,9 +59,9 @@
 	src: url('/LiveOverfont.woff') format('woff');
 }
 
-:global(*) {
+* {
 	scroll-behavior: smooth;
-	/*font-family: 'Pixelify Sans', serif;*/
+	/* font-family: 'Pixelify Sans', serif; */
 	font-family: 'LiveOverfont', serif;
 	font-weight: 300;
 	margin: 0;
@@ -72,7 +72,7 @@
 	transition: 0.3s linear;
 }
 
-:global(::-moz-selection) {
+::-moz-selection {
 	/* Code for Firefox */
 	color: black;
 	background: white;

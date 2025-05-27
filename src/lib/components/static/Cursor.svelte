@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	let { isBlack = $bindable() } = $props();
+	let { theme = $bindable() } = $props();
 
 	let mouseX = $state(0);
 	let mouseY = $state(0);
@@ -22,7 +22,7 @@
 
 <div
 	class="custom-cursor"
-	data-black={isBlack}
+	data-theme={theme}
 	style="
 		transform: translate({mouseX}px, {mouseY}px);
 		"
@@ -47,7 +47,7 @@
 
 		opacity: 0.3;
 	}
-	.custom-cursor[data-black='true'] {
+	.custom-cursor[data-theme='dark'] {
 		animation: cur 1s infinite linear;
 		padding: 30px;
 	}

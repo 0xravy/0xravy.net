@@ -3,8 +3,6 @@
 	import Ravy from './static/Ravy.svelte';
 	import Container from './static/Container.svelte';
 
-	let { isBlack = $bindable() } = $props();
-
 	let pageLoaded = $state(false);
 
 	onMount(() => {
@@ -25,14 +23,18 @@
 					</div>
 					<p>
 						<span style="color: red">WHOAMI</span><br />
-						A 19-year-old Saudi tech enthusiast with over 5 years of programming experience and a passion
-						for networking.<br /><br />Dedicated to developing the Arab community grow in the world
-						of technology.
+						A {new Date().getFullYear() - 2005} year old Saudi tech enthusiast with over {new Date().getFullYear() -
+							2019} years of programming experience and a passion for networking.<br /><br
+						/>Dedicated to developing the Arab community grow in the world of technology.
 					</p>
 				</h2>
+
+				<a href="/posts">
+					<button class="btn">Blog -></button>
+				</a>
 			</div>
 			<div style="overflow: hidden;" class="image" class:slide-in={pageLoaded}>
-				<Ravy bind:isBlack />
+				<Ravy />
 			</div>
 		</div>
 	</Container>
@@ -115,5 +117,19 @@
 	.image.slide-in {
 		opacity: 1;
 		transform: translateX(0);
+	}
+
+	.btn {
+		margin-top: 30px;
+		font-size: 30px;
+		padding: 10px 30px;
+		border-radius: 8px;
+		background: var(--green);
+		color: var(--primary);
+		opacity: 0.8;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 </style>

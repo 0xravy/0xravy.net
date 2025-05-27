@@ -9,24 +9,28 @@
 	import Bar from '$lib/components/static/Bar.svelte';
 	import IpsBg from '$lib/components/static/IpsBg.svelte';
 	import CubesBg from '$lib/components/static/CubesBg.svelte';
+	import { onMount } from 'svelte';
 
-	let isBlack = $state(false);
+	let theme = $state('light');
 
-	$inspect(isBlack);
+	onMount(() => {
+		theme = localStorage.getItem('theme') || 'light';
+	});
 </script>
 
 <DotsBg />
-{#if isBlack}
-	<IpsBg />
-{:else}
+{#if theme === 'light'}
 	<CubesBg />
 {/if}
+{#if theme === 'dark'}
+	<IpsBg />
+{/if}
 
-<Cursor bind:isBlack />
+<Cursor bind:theme />
 <Bar />
 
 <main>
-	<Home bind:isBlack />
+	<Home />
 	<div class="lala1">
 		<Experience />
 		<Projects />
@@ -36,14 +40,9 @@
 </main>
 
 <style>
-	@import '$lib/styles/global.css';
-
 	.lala1 {
 		box-shadow: -1px -20px 20px 10px #00000042;
 		background: var(--primary);
 		width: 100%;
-	}
-
-	main {
 	}
 </style>
